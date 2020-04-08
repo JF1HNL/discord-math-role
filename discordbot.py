@@ -2,6 +2,7 @@ from discord.ext import commands
 import discord
 import os
 import traceback
+import emoji
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -45,6 +46,32 @@ async def on_message(message):
         return
     # 「/neko」と発言したら「にゃーん」が返る処理
     await message.channel.send(f'{message.author.mention} にゃーん')
+
+@client.event  
+async def on_raw_reaction_add(payload):
+    if payload.message_id != 697316006414254130:
+        return
+    guild = client.get_guild(payload.guild_id)
+    member = guild.get_member(payload.user_id)
+    p_emoji = payload.emoji.name
+    role_id = emoji.emoji_role[p_emoji]
+    geted_role = guild.get_role(role_id)
+    await member.add_roles(geted_role)
+    return_channel = client.get_channel(697321440357122059)
+    await return_channel.send(f"{member.mention} さん：{geted_role}ロールを付与しました。")
+
+@client.event  
+async def on_raw_reaction_remove(payload):
+    if payload.message_id != 697316006414254130:
+        return
+    guild = client.get_guild(payload.guild_id)
+    member = guild.get_member(payload.user_id)
+    p_emoji = payload.emoji.name
+    role_id = emoji.emoji_role[p_emoji]
+    geted_role = guild.get_role(role_id)
+    await member.remove_roles(geted_role)
+    return_channel = client.get_channel(697321440357122059)
+    await return_channel.send(f"{member.mention} さん：{geted_role}ロールを削除しました。")
 
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
