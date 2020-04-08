@@ -23,7 +23,11 @@ async def on_message(message):
     # 「/neko」と発言したら「にゃーん」が返る処理
     await message.add_reaction(emoji.se.one)
     await message.add_reaction(emoji.se.two)
-    await message.add_reaction(emoji.se.three)
+    #await message.add_reaction(emoji.se.three)
+    #await message.add_reaction(emoji.se.four)
+    #await message.add_reaction(emoji.se.five)
+    #await message.add_reaction(emoji.se.six)
+    #await message.add_reaction(emoji.se.seven)
 
 # Botの起動とDiscordサーバーへの接続
 client.run(token)
