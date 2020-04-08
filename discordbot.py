@@ -1,8 +1,14 @@
 from discord.ext import commands
+import discord
 import os
 import traceback
 
 token = os.environ['DISCORD_BOT_TOKEN']
+
+
+# import env
+# token = env.DISCORD_BOT_TOKEN
+
 # bot = commands.Bot(command_prefix='/')
 
 
