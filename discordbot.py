@@ -5,11 +5,11 @@ import traceback
 import emoji
 import data
 
-# token = os.environ['DISCORD_BOT_TOKEN']
+token = os.environ['DISCORD_BOT_TOKEN']
 
 
-import env
-token = env.DISCORD_BOT_TOKEN
+#import env
+#token = env.DISCORD_BOT_TOKEN
 
 # bot = commands.Bot(command_prefix='/')
 
