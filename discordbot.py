@@ -7,8 +7,8 @@ import emoji
 token = os.environ['DISCORD_BOT_TOKEN']
 
 
-# import env
-# token = env.DISCORD_BOT_TOKEN
+#import env
+#token = env.DISCORD_BOT_TOKEN
 
 # bot = commands.Bot(command_prefix='/')
 
@@ -38,6 +38,7 @@ async def on_ready():
     # 起動したらターミナルにログイン通知が表示される
     print('ログインしました')
 
+
 # メッセージ受信時に動作する処理
 @client.event
 async def on_message(message):
@@ -49,7 +50,7 @@ async def on_message(message):
 
 @client.event  
 async def on_raw_reaction_add(payload):
-    if payload.message_id != 697316006414254130:
+    if payload.message_id != 697408273208442922:
         return
     guild = client.get_guild(payload.guild_id)
     member = guild.get_member(payload.user_id)
@@ -62,7 +63,7 @@ async def on_raw_reaction_add(payload):
 
 @client.event  
 async def on_raw_reaction_remove(payload):
-    if payload.message_id != 697316006414254130:
+    if payload.message_id != 697408273208442922:
         return
     guild = client.get_guild(payload.guild_id)
     member = guild.get_member(payload.user_id)
